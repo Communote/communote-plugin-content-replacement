@@ -5,7 +5,8 @@ help of regular expression based search and replace operations. These manipulati
 # Compatibility
 The plugin can be used with a Communote standalone installation and the Communote SaaS platform.
 
-The following table shows which Communote server versions are supported by a specific version of the plugin. A server version which is not listed cannot be uses with the plugin.
+The following table shows which Communote server versions are supported by a specific version of the plugin. A server version which 
+is not listed cannot be used with the plugin.
 
 | Plugin Version  | Supported Server Version |
 | ------------- | ------------- |
@@ -21,13 +22,13 @@ replacement definitions.
 
 A replacement definition has a name, a condition which should be matched and a replacement for the match. The name is only for you and can be used to give the definition a descriptive 
 identifier. The condition is a regular expression which will be applied to the content of each note. We use the Java regular expression flavor. The available constructs are documented 
-[here](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html). The actual replacement can be anything but you should take care that after aplying the replacement the 
+[here](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html). The actual replacement can be anything but you should take care that after applying the replacement the 
 HTML of the note is still valid. Within the replacement you can use references to matched groups of the expression (i.e. $0 for the whole match, $1 for the first group and so on). 
 The last element of the form to add a replacement definition is a checkbox which when checked modifies how the replacement is applied. If this option is activated the replacement 
 is not used to replace the match instead it is appended to the content of the note.
 
 ## Example
-The following example will replace every occurence of ```[gh-x]``` where x is a number with a link to the GitHub issue with that number of the 
+The following example will replace every occurrence of ```[gh-x]``` where x is a number with a link to the GitHub issue with that number of the 
 [Communote server](https://github.com/Communote/communote-server) repository. The link is enriched with a small octocat logo (:octocat:) which was previously uploaded as an attachment 
 to a note in a Communote topic that is readable by all users.
 

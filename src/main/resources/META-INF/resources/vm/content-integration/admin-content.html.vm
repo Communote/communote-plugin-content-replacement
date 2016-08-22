@@ -1,0 +1,64 @@
+#cnRenderMessages()
+<h3 class="cn-headline">#t('plugins.contentreplacement.add.title')</h3>
+<form method="POST">
+    <div class="line w100">
+        <div class="label"><label for="name">#t('plugins.contentreplacement.label.name'):<span class="required">*</span></label></div>
+        <div class="input"><input type="text" name="name" id="name" value="" size="40" /></div>
+    </div>
+    <div class="line w100">
+        <div class="label"><label for="expression">#t('plugins.contentreplacement.label.expression'):<span class="required">*</span></label></div>
+        <div class="input"><input type="text" name="expression" id="expression" value="" size="40" /></div>
+    </div>
+    <div class="line w100">
+        <div class="label"><label for="replacement">#t('plugins.contentreplacement.label.replacement'):<span class="required">*</span></label></div>
+        <div class="input"><textarea name="replacement" id="replacement" cols="50" rows="8"></textarea></div>
+    </div>
+    <div class="line w100">
+        <input type="checkbox" class="checkbox" name="disableInline" id="disableInline" />
+        <label for="enableInline">#t('plugins.contentreplacement.label.inline')</label>
+    </div>
+    <div class="info">#t('form.info.required.fields')</div> 
+    <div class="actionbar actionbar-general">
+        <div class="button-gray main">
+            <input type="submit" class="button" name="send" value="#t('plugins.contentreplacement.button.add')">
+        </div>
+        <span class="clear"><!-- --></span>
+    </div>
+</form>
+
+<hr />
+<h3 class="cn-headline">#t('plugins.contentreplacement.delete.title')</h3>
+#foreach( $definition in $replacementDefinitionList )
+<form method="POST">
+    <table>
+        <tr>
+            <td class="label" style="width: 30%;">#t('plugins.contentreplacement.label.name'):</td>
+            <td class="current no-border">$definition.name</td>
+        </tr>
+        <tr>
+            <td class="label" style="width: 30%;">#t('plugins.contentreplacement.label.expression'):</td>
+            <td class="current no-border">$escTool.xmlSimple($definition.expression)</td>
+        </tr>
+        <tr>
+            <td class="label" style="width: 30%;">#t('plugins.contentreplacement.label.replacement'):</td>
+            <td class="current no-border">$escTool.xmlSimple($definition.replacement)</td>
+        </tr>
+        <tr>
+            <td class="label" style="width: 30%;">#t('plugins.contentreplacement.label.inline'):</td>
+            <td class="current no-border"><input type="checkbox" class="checkbox" name="disableInline" id="disableInline" disabled="disabled" #if(!$definition.inline)checked="checked" #end/></td>
+        </tr>
+        <tr>
+            <td class="label" style="width: 30%;">
+                <input type="hidden" name="id" value="$foreach.count" />
+            </td>
+            <td class="current no-border">
+                <div class="button-gray main">
+                    <input type="submit" class="button" name="delete" value="#t('plugins.contentreplacement.button.delete')">
+                </div>
+            </td>
+        </tr>
+    </table>       
+    <span class="clear"><!-- --></span>
+    <hr />
+</form>
+#end

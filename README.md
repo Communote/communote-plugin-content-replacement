@@ -10,7 +10,7 @@ is not listed cannot be used with the plugin.
 
 | Plugin Version  | Supported Server Version |
 | ------------- | ------------- |
-| 1.2  | 3.4.x  |
+| 1.2  | 3.4.x, 3.5.x  |
 
 # Installation
 To install the plugin get a release from the [Releases](https://github.com/Communote/communote-plugin-content-replacement/releases) section and deploy it to your Communote installation 
@@ -33,7 +33,7 @@ The following example will replace every occurrence of ```[gh-x]``` where x is a
 to a note in a Communote topic that is readable by all users.
 
 * Name: Communote GitHub issues
-* Condition: (^|[\s>;])\[(gh-)([0-9]+)\]
+* Condition: `(^|[\s>;])\[(gh-)([0-9]+)\]`
 * Replacement:
 
   ```
